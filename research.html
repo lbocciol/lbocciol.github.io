@@ -53,9 +53,8 @@
 									</header>
 									
 									<p> A Core-Collapse Supernova (CCSN) is an extremely energetic explosion that happens at the end of the life of a massive star. 
-									It is effectively the <em>death</em> of a star. If you want to know more about Supernovae, check out 
-									<a href="https://en.wikipedia.org/wiki/Supernova">this awesome website</a> 
-									that took me years to find, and now is my go-to for any science information I'm looking for.
+									It is effectively the <em>death</em> of a star. If you want to know more about Supernovae, I have 
+									<a href="https://en.wikipedia.org/wiki/Supernova"> an awesome website</a> for you. Trust me, it's great! If you're looking for an educational video, <a href="https://www.youtube.com/watch?v=Yt-SBT7nNfU">this one</a> is extremely well-made. For a more technical discussion, see either <a href="https://ui.adsabs.harvard.edu/abs/2020LRCA....6....3M/abstract">Review 1</a> or <a href="https://ui.adsabs.harvard.edu/abs/2021Natur.589...29B/abstract">Review 2</a> 
 									<header>
 									<p> The computational aspect of Supernovae <p/>
 									</header>
@@ -71,25 +70,45 @@
 									<hr />
 								
 									
-									<h4>The role of neutrino-driven turbulent convection in CCSNe </h4>
-									<p>Neutrino-driven turbulent convection is widely considered one of the main (if not <em>the main</em>) mechanisms that enable shock revival in supernovae, as many 3D simulations have shown. In my research, I use a spherically-symmetric, open-source code called <a href="https://github.com/evanoconnor/GR1D">GR1D</a> to simulate the collapse and shock revival. Therefore, by imposign spherical symmetry one loses all the information about any non-radial motions, such as turbulence. However, there are some parametric models that enable spherically symmetric models to take the energy transfer due to turbulent convection into account. We modified one of these models (called <a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...890..127C/abstract"><em>STIR</em></a>) so that it would take general relativistic effects into account (and we wrote a <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a> about it!). In the following video you can see the collapse of a 20 solar mass star and subsequent shock revival. In the second panel you can see the amount of turbulent velocity that is generated in our model, both in the gain region and deep inside the PNS. NOrmally, with the model described in the aforementioned <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a>, you would see no turbulent velocity inside the PNS. However, by tuning the parameters that control the amount of turbulent convection in the PNS, one can obtain turbulent velocities like the ones shown in the movie that agree quite well with the 3D results. We are writing another paper about this, so stay tuned!
+									<h4><a name="nu_turb">The role of neutrino-driven turbulent convection in CCSNe</a></h4>
+									<p>Neutrino-driven turbulent convection is widely considered one of the main (if not <em>the main</em>) mechanisms that enable shock revival in supernovae, as many 3D simulations have shown. A fraction of the neutrinos produced in the proto-neutron star interacts with the material behind the shock (in the so-called gain region), and increases its entropy. This creates a negative entropy gradient, which triggers turbulent convection, which helps transfering the energy to the shock, hence enabling the explosion. In my research, I use a spherically-symmetric, open-source code called <a href="https://github.com/evanoconnor/GR1D">GR1D</a> to simulate the collapse of massive stars and subsequent shock revival. However, by imposing spherical symmetry, one loses all the information about non-radial motions, such as turbulence. Luckily, there are some parametric models that enable spherically symmetric models to take the energy transfer due to turbulent convection into account. We modified one of these models (called <a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...890..127C/abstract"><em>STIR</em></a>) to take general relativistic effects into account (and we wrote <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">this paper</a> about it!). <br />
+									
+									In the following video you can see the collapse of a 20 solar mass star and subsequent shock revival. A more detailed description is given below. 
 									</p>
 									<video width="100%" controls>
 										<source src="videos/entropy_vturb_omegaBV_logr.mp4" type="video/mp4">
 									</video>
 
+									<p> The expanding solid line shows the location of the shock, the dashed line shows the the outer edge of the Proto-Neutron Star and the dashed dotted line shows the location of the gain radius (the gain region is the region between the gain radius and the shock!). The colorbar for the leftmost panel shows the entropy in the star, while the one for the rightmost panel shows the Brunt–Väisälä frequency, which tells you where convection <b><em>can</em></b> develop (red regions) or <b><em>cannot</em></b> develop (blue regions). The most interesting panel is the middle one, where the colorbar shows the magnitude of the turbulent velocity generated in our model, both in the gain region and deep inside the PNS. Normally, with the model described in the aforementioned <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a>, you would see no turbulent velocity inside the PNS. However, by tuning the parameters that control the amount of turbulent convection in the PNS, one can obtain turbulent velocities like the ones shown in the movie, that agree quite well with the 3D results. We are writing another paper about this, so stay tuned!
+									</p>
+
 									<hr />
 
 									<h4>The role of General Relativity in CCSNe </h4>
-									<p>I wrote a <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a>  about it. I would also describe the paper to you but I have other things to do.</p>
+									<p>General Relativity is known to be a very important theory when it comes to describing very dense astronomical objects. However, for a "lighter" object like the Sun, one finds no difference between describing it using General Relativity (GR) or the good old Newtonian theory of gravity. Supernovae are somewhere in between. Densities at the very center of the newly formed Proto-Neutron Star are indeed large enough to require a general relativistic description, but for now most simulations have been carried out with a modified Newtonian potential which is close to GR but is not quite the same as a full GR formulation. We therefore decided to investigate how different is the impact of turbulent convection on the explosion if one uses Newtonian gravity vs. GR. In particular, since GR can change the structure of the stars (making them more or less compact), we wanted to see if it affects stars of different masses in the same way. To do that, we used the code described <a href="nu_turb">above</a> to run GR and Newtonian simulations of different progenitors, and see which ones explode and which ones don't. The main Figure of our <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a> is described below. </p>
+									
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<div class="col-12"><span class="image fit"><img src="images/Figures/explodability_GREP_highres.png" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/Figures/explodability_GR_highres.png" alt="" /></span></div>
+										</div>
+									</div>									
+									
+									<div class="image"><img src="images/Figures/explodability_GREP_highres.png" alt="" /></div>
+									<div class="image"><img src="images/explodability_GREP_highres.png" alt="" /></div>
+									<p>This Figure shows how different progenitors explode with and without GR. The parameter on the y-axis controls how strong the convection is (don't worry too much about it, but if you really want to you can read our <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a>). As you can see, in the middle panels the patterns looks quite different if you compare GR and GREP (which stands for General Relativistic Effective Potential, and it's basically the modified Newtonian approach that I was describing above). <br /> 
+									
+									The main conclusion one can draw from this Figure is that General Relativity might change which stars explode and which ones do not, and should therefore be taken into account in more sophisticated 3D simulations.
+									</p>
+									
 									<hr />
 
 									<h4>The role of the Nuclear Equation of State in CCSNe </h4>
-									<p>I wrote <a href="https://arxiv.org/abs/2110.05544">another paper</a> about it. I would also describe the paper to you but I have the other <a href="https://ui.adsabs.harvard.edu/abs/2021ApJ...912...29B/abstract">paper</a> to describe first.</p>
+									<p>I wrote <a href="https://arxiv.org/abs/2110.05544">another paper</a> about it. I would describe the paper to you but I have other things to do :/</p>
 									<hr />
 
 									<h4>The role of the PNS convection in CCSNe </h4>
-									<p>This is work in progress. Maybe I'll show you a couple of plots after I'll have this Website presentable</p>
+									<p>This is work in progress. Maybe I'll show you a couple of plots once we are done with the simulations. Stay tuned! </p>
 									<hr />
 								</section>
 
